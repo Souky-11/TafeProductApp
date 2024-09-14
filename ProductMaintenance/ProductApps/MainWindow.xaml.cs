@@ -29,11 +29,15 @@ namespace ProductApps
 
         private void calculateButton_Click(object sender, RoutedEventArgs e)
         {
+            decimal deliveryCharge = 25m;
+
             try
             {
                 cProduct = new Product(Convert.ToDecimal(priceTextBox.Text), Convert.ToInt16(quantityTextBox.Text));
                 cProduct.calTotalPayment();
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
+
+                deliveryChargeTextBlock.Text = Convert.ToString(cProduct.TotalPayment + deliveryCharge);
             }
             catch (FormatException)
             {
