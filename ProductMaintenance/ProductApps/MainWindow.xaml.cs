@@ -31,6 +31,7 @@ namespace ProductApps
         {
             decimal deliveryCharge = 25m;
             decimal wrappingCharge = 5m;
+            decimal gST = 1.1m;
 
             try
             {
@@ -42,6 +43,8 @@ namespace ProductApps
 
                 decimal totalCharges = cProduct.TotalPayment + deliveryCharge + wrappingCharge;
                 wrappingTextBlock.Text = Convert.ToString(totalCharges);
+
+                gSTTextBlock.Text = Convert.ToString((totalCharges *gST)+totalCharges);
 
             }
             catch (FormatException)
